@@ -1,20 +1,9 @@
 // script.js
 document.addEventListener("DOMContentLoaded", () => {
     const fortunes = [
-        "Dziś spotkasz kogoś wyjątkowego!",
         "Sukces czeka za rogiem.",
         "Przygotuj się na niespodziankę.",
         "Czas na nowe wyzwania.",
-        "Twoje marzenia wkrótce się spełnią.",
-        "Znajdziesz odpowiedź na dręczące pytanie.",
-        "Drobne gesty przyniosą wielką radość.",
-        "Twój uśmiech odmieni czyjś dzień.",
-        "Zaufaj swojemu instynktowi – nie zawiedzie cię.",
-        "Przyjaźń to klucz do dzisiejszego sukcesu.",
-        "Twoje kreatywne pomysły zostaną docenione.",
-        "Nie bój się spróbować czegoś nowego.",
-        "Miłość jest bliżej, niż myślisz.",
-        "Otrzymasz ważną wiadomość.",
         "Niespodziewany zwrot akcji odmieni twoje plany."
     ];
 
