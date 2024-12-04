@@ -1,44 +1,70 @@
+/* style.css */
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    background: linear-gradient(to bottom, #ffccff, #ff99cc);
-    color: #333;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2d0052; /* Fioletowe tło */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-header {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.container {
+    text-align: center;
 }
 
 h1 {
-    font-size: 3em;
-    color: #ff66ff;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff00ff;
 }
 
-button {
-    background-color: #ff66ff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border-radius: 5px;
+.magic-ball {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #ff00ff, #2d0052);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ff00ff;
+    margin: 0 auto;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.magic-ball:hover {
+    transform: scale(1.1);
+}
+
+.fortune {
     margin-top: 20px;
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-button:hover {
-    background-color: #cc33cc;
+
+/* Animacja wchodzenia tekstu z dołu */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-#fortune {
-    font-size: 1.5em;
-    color: #660066;
+.fortune {
     margin-top: 20px;
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.hidden {
-    display: none;
+.fortune.show {
+    animation: fadeInUp 0.5s ease forwards; /* Animacja wchodzenia */
 }
