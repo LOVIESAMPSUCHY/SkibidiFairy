@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>SkibidiFairy</h1>
-    <div id="magicBall"></div>
-    <p id="fortune" class="fortune"></p>
+    <header>
+        <h1>SkibidiFairy</h1>
+        <p>Twoja magiczna wróżbiarka!</p>
+    </header>
+    <main>
+        <div class="magic-ball-container">
+            <div class="magic-ball">
+                <div class="glow"></div>
+                <div class="reflection"></div>
+            </div>
+            <button id="get-fortune">Zapytaj wróżki</button>
+        </div>
+        <p id="fortune" class="hidden"></p>
+    </main>
+    <footer>
+        <p>&copy; 2024 SkibidiFairy. Wszystkie prawa zastrzeżone.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

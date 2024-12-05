@@ -1,84 +1,111 @@
-/* style.css */
+/* Fioletowy motyw */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #2d0052; /* Fioletowe tło */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
+    font-family: 'Arial', sans-serif;
+    background: radial-gradient(circle, #5b0060, #2c0033);
+    color: white;
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-h1 {
+/* Nagłówki */
+header h1 {
     font-size: 3rem;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px #ff00ff;
+    margin: 0;
+    color: #ff66ff;
+    text-shadow: 0 0 10px #ff66ff, 0 0 20px #cc33cc;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #f2a1f3;
+}
+
+/* Magiczna kula */
+.magic-ball-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
 }
 
 .magic-ball {
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, #ff00ff, #2d0052);
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #8400b8, #2c0033);
     border-radius: 50%;
-    box-shadow: 0 0 20px #ff00ff;
-    margin: 0 auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.magic-ball:hover {
-    transform: scale(1.1);
-}
-
-.fortune {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    font-style: italic;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-
-/* Animacja wchodzenia tekstu z dołu */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fortune {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    font-style: italic;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.fortune.show {
-    animation: fadeInUp 0.5s ease forwards; /* Animacja wchodzenia */
-}
-
-
-#magicBall {
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, violet, purple);
-    border-radius: 50%;
-    margin: 20px auto;
+    box-shadow: 0 0 20px #ff66ff, 0 0 40px #cc33cc;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+/* Efekt blasku */
+.magic-ball .glow {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 102, 255, 0.4), rgba(255, 102, 255, 0));
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* Efekt odbicia światła */
+.magic-ball .reflection {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    border-radius: 50%;
+    transform: rotate(-45deg);
+    opacity: 0.5;
+}
+
+/* Animacje */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Przyciski */
+button {
+    background-color: #ff66ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0px 0px 20px violet;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #cc33cc;
+    box-shadow: 0 0 10px #ff99ff, 0 0 20px #ff66ff;
+}
+
+/* Ukrycie wróżby */
+#fortune.hidden {
+    display: none;
+}
+
+#fortune {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #fff8ff;
 }

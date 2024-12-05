@@ -1,25 +1,20 @@
-// script.js
-document.addEventListener("DOMContentLoaded", () => {
-    const fortunes = [
-        "Sukces czeka za rogiem.",
-        "Przygotuj się na niespodziankę.",
-        "Czas na nowe wyzwania.",
-        "Niespodziewany zwrot akcji odmieni twoje plany."
-    ];
+const fortunes = [
+    "Twoje marzenia wkrótce się spełnią!",
+    "Przygotuj się na coś niesamowitego!",
+    "Los szykuje dla Ciebie niespodziankę.",
+    "Szczęście już na Ciebie czeka.",
+    "Wkrótce spotkasz kogoś wyjątkowego."
+];
 
-    const magicBall = document.getElementById("magicBall");
-    const fortuneText = document.getElementById("fortune");
+document.getElementById('get-fortune').addEventListener('click', () => {
+    const fortuneElement = document.getElementById('fortune');
+    const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+    
+    // Animacja wyświetlania wróżby
+    fortuneElement.classList.remove('hidden');
+    fortuneElement.textContent = "Magia działa... ✨";
 
-    magicBall.addEventListener("click", () => {
-        const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-        
-        // Zmień tekst i dodaj animację
-        fortuneText.textContent = randomFortune;
-        fortuneText.classList.add("show");
-
-        // Usuń animację po 3 sekundach
-        setTimeout(() => {
-            fortuneText.classList.remove("show");
-        }, 3000);
-    });
+    setTimeout(() => {
+        fortuneElement.textContent = randomFortune;
+    }, 2000); // Po 2 sekundach wyświetla wróżbę
 });
