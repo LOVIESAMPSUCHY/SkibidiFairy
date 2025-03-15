@@ -5,13 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkibidiFairy</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Przełącznik trybu ciemnego/jasnego -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" title="Zmień motyw">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
     <header>
         <h1>SkibidiFairy</h1>
         <p>Twoja magiczna wróżbiarka!</p>
     </header>
+
     <main>
+        <!-- Sekcja powitalna z personalizacją -->
+        <section class="welcome-section hidden">
+            <h2>Witaj w SkibidiFairy!</h2>
+            <p>Podaj swoje imię:</p>
+            <input type="text" id="user-name" placeholder="Twoje imię">
+            <button id="save-name">Zapisz</button>
+        </section>
+
         <!-- Sekcja wyboru kategorii wróżb -->
         <section class="category-selection">
             <h2>Wybierz kategorię wróżby:</h2>
@@ -29,26 +46,36 @@
                 <div class="glow"></div>
                 <div class="reflection"></div>
                 <div class="magic-particles" id="magic-particles"></div>
+                <div class="magic-text" id="magic-text"></div>
             </div>
             <button id="get-fortune">Zapytaj wróżki</button>
         </div>
 
         <!-- Wyświetlanie wróżby -->
         <p id="fortune" class="hidden"></p>
+        <div class="share-buttons hidden" id="share-buttons">
+            <h3>Podziel się wróżbą:</h3>
+            <button class="share-btn" id="share-twitter"><i class="fab fa-twitter"></i> Twitter</button>
+            <button class="share-btn" id="share-facebook"><i class="fab fa-facebook"></i> Facebook</button>
+            <button class="share-btn" id="share-copy"><i class="fas fa-copy"></i> Skopiuj</button>
+        </div>
 
         <!-- Historia wróżb -->
         <section class="fortune-history">
             <h2>Historia Twoich wróżb</h2>
+            <button id="clear-history">Wyczyść historię</button>
             <ul id="history-list"></ul>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 SkibidiFairy. Wszystkie prawa zastrzeżone.</p>
+        <p>© 2025 SkibidiFairy. Wszystkie prawa zastrzeżone.</p>
     </footer>
 
     <!-- Dźwięki -->
     <audio id="magic-sound" src="sounds/magic.mp3"></audio>
     <audio id="reveal-sound" src="sounds/reveal.mp3"></audio>
+    <audio id="welcome-sound" src="sounds/welcome.mp3"></audio>
 
     <script src="script.js"></script>
 </body>

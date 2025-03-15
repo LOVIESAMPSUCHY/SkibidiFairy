@@ -1,4 +1,4 @@
-/* Fioletowy motyw */
+/* Fioletowy motyw (domyślny - ciemny) */
 body {
     margin: 0;
     padding: 0;
@@ -10,6 +10,42 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Tryb jasny */
+body.light-theme {
+    background: radial-gradient(circle, #f3d6ff, #e6b3ff);
+    color: #333;
+}
+
+/* Przełącznik trybu */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ff66ff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+body.light-theme #theme-toggle-btn {
+    color: #8400b8;
+}
+
+#theme-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle-btn:hover i {
+    transform: scale(1.2);
 }
 
 /* Nagłówki */
@@ -20,9 +56,78 @@ header h1 {
     text-shadow: 0 0 10px #ff66ff, 0 0 20px #cc33cc;
 }
 
+body.light-theme header h1 {
+    color: #8400b8;
+    text-shadow: 0 0 10px #cc33cc, 0 0 20px #ff99ff;
+}
+
 header p {
     font-size: 1.2rem;
     color: #f2a1f3;
+}
+
+body.light-theme header p {
+    color: #666;
+}
+
+/* Sekcja powitalna */
+.welcome-section {
+    margin: 20px 0;
+    background: rgba(255, 102, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.light-theme .welcome-section {
+    background: rgba(132, 0, 184, 0.1);
+}
+
+.welcome-section h2 {
+    font-size: 1.8rem;
+    color: #ff99ff;
+}
+
+body.light-theme .welcome-section h2 {
+    color: #8400b8;
+}
+
+.welcome-section input {
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #8400b8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+body.light-theme .welcome-section input {
+    background-color: #ff99ff;
+    color: #333;
+}
+
+.welcome-section button {
+    background-color: #ff66ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.light-theme .welcome-section button {
+    background-color: #8400b8;
+    color: white;
+}
+
+.welcome-section button:hover {
+    background-color: #cc33cc;
+    box-shadow: 0 0 10px #ff99ff, 0 0 20px #ff66ff;
 }
 
 /* Sekcja wyboru kategorii */
@@ -35,6 +140,10 @@ header p {
     color: #ff99ff;
 }
 
+body.light-theme .category-selection h2 {
+    color: #8400b8;
+}
+
 .category-selection select {
     padding: 10px;
     font-size: 1.2rem;
@@ -44,6 +153,11 @@ header p {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+body.light-theme .category-selection select {
+    background-color: #ff99ff;
+    color: #333;
 }
 
 .category-selection select:hover {
@@ -73,6 +187,11 @@ header p {
     transition: transform 0.5s ease;
 }
 
+body.light-theme .magic-ball {
+    background: radial-gradient(circle, #ff99ff, #f3d6ff);
+    box-shadow: 0 0 20px #8400b8, 0 0 40px #cc33cc;
+}
+
 .magic-ball:hover {
     transform: scale(1.05);
 }
@@ -85,6 +204,10 @@ header p {
     background: radial-gradient(circle, rgba(255, 102, 255, 0.4), rgba(255, 102, 255, 0));
     border-radius: 50%;
     animation: pulse 2s infinite;
+}
+
+body.light-theme .magic-ball .glow {
+    background: radial-gradient(circle, rgba(132, 0, 184, 0.4), rgba(132, 0, 184, 0));
 }
 
 /* Efekt odbicia światła */
@@ -118,6 +241,24 @@ header p {
     animation: sparkle 1.5s infinite;
 }
 
+body.light-theme .particle {
+    background: #8400b8;
+}
+
+/* Magiczny tekst w kuli */
+.magic-text {
+    position: absolute;
+    font-size: 1rem;
+    color: #fff8ff;
+    text-align: center;
+    animation: floatText 2s infinite;
+    opacity: 0;
+}
+
+body.light-theme .magic-text {
+    color: #8400b8;
+}
+
 /* Animacje */
 @keyframes pulse {
     0%, 100% {
@@ -145,6 +286,17 @@ header p {
     }
 }
 
+@keyframes floatText {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.8;
+    }
+}
+
 /* Przyciski */
 button {
     background-color: #ff66ff;
@@ -158,17 +310,22 @@ button {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
+body.light-theme button {
+    background-color: #8400b8;
+}
+
 button:hover {
     background-color: #cc33cc;
     box-shadow: 0 0 10px #ff99ff, 0 0 20px #ff66ff;
     transform: scale(1.05);
 }
 
-/* Ukrycie wróżby */
-#fortune.hidden {
+/* Ukrycie elementów */
+.hidden {
     display: none;
 }
 
+/* Wróżba */
 #fortune {
     font-size: 1.5rem;
     margin-top: 20px;
@@ -177,6 +334,46 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     animation: fadeIn 0.5s ease;
+}
+
+body.light-theme #fortune {
+    color: #333;
+    background: rgba(132, 0, 184, 0.1);
+}
+
+/* Przyciski udostępniania */
+.share-buttons {
+    margin-top: 20px;
+}
+
+.share-buttons h3 {
+    font-size: 1.2rem;
+    color: #ff99ff;
+}
+
+body.light-theme .share-buttons h3 {
+    color: #8400b8;
+}
+
+.share-btn {
+    background-color: #ff66ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.light-theme .share-btn {
+    background-color: #8400b8;
+}
+
+.share-btn:hover {
+    background-color: #cc33cc;
+    box-shadow: 0 0 10px #ff99ff, 0 0 20px #ff66ff;
 }
 
 /* Historia wróżb */
@@ -190,9 +387,26 @@ button:hover {
     margin-right: auto;
 }
 
+body.light-theme .fortune-history {
+    background: rgba(132, 0, 184, 0.1);
+}
+
 .fortune-history h2 {
     font-size: 1.8rem;
     color: #ff99ff;
+}
+
+body.light-theme .fortune-history h2 {
+    color: #8400b8;
+}
+
+.fortune-history button {
+    background-color: #ff3333;
+    margin-bottom: 20px;
+}
+
+.fortune-history button:hover {
+    background-color: #cc0000;
 }
 
 .fortune-history ul {
@@ -205,6 +419,11 @@ button:hover {
     border-bottom: 1px solid #ff99ff;
     color: #fff8ff;
     font-size: 1.2rem;
+}
+
+body.light-theme .fortune-history li {
+    color: #333;
+    border-bottom: 1px solid #8400b8;
 }
 
 /* Animacja pojawiania się */
@@ -242,12 +461,16 @@ button:hover {
         height: 70px;
     }
 
-    button {
+    button, .share-btn {
         font-size: 1rem;
         padding: 8px 16px;
     }
 
     #fortune {
         font-size: 1.2rem;
+    }
+
+    .welcome-section, .category-selection, .fortune-history {
+        padding: 10px;
     }
 }
