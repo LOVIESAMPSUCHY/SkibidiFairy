@@ -12,18 +12,44 @@
         <p>Twoja magiczna wróżbiarka!</p>
     </header>
     <main>
+        <!-- Sekcja wyboru kategorii wróżb -->
+        <section class="category-selection">
+            <h2>Wybierz kategorię wróżby:</h2>
+            <select id="fortune-category">
+                <option value="general">Ogólne</option>
+                <option value="love">Miłość</option>
+                <option value="career">Kariera</option>
+                <option value="health">Zdrowie</option>
+            </select>
+        </section>
+
+        <!-- Magiczna kula -->
         <div class="magic-ball-container">
             <div class="magic-ball">
                 <div class="glow"></div>
                 <div class="reflection"></div>
+                <div class="magic-particles" id="magic-particles"></div>
             </div>
             <button id="get-fortune">Zapytaj wróżki</button>
         </div>
+
+        <!-- Wyświetlanie wróżby -->
         <p id="fortune" class="hidden"></p>
+
+        <!-- Historia wróżb -->
+        <section class="fortune-history">
+            <h2>Historia Twoich wróżb</h2>
+            <ul id="history-list"></ul>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 SkibidiFairy. Wszystkie prawa zastrzeżone.</p>
     </footer>
+
+    <!-- Dźwięki -->
+    <audio id="magic-sound" src="sounds/magic.mp3"></audio>
+    <audio id="reveal-sound" src="sounds/reveal.mp3"></audio>
+
     <script src="script.js"></script>
 </body>
 </html>

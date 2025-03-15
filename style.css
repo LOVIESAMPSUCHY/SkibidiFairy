@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 /* Nagłówki */
@@ -25,12 +25,38 @@ header p {
     color: #f2a1f3;
 }
 
+/* Sekcja wyboru kategorii */
+.category-selection {
+    margin: 20px 0;
+}
+
+.category-selection h2 {
+    font-size: 1.8rem;
+    color: #ff99ff;
+}
+
+.category-selection select {
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #8400b8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category-selection select:hover {
+    background-color: #cc33cc;
+}
+
 /* Magiczna kula */
 .magic-ball-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
+    position: relative;
 }
 
 .magic-ball {
@@ -44,6 +70,11 @@ header p {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+.magic-ball:hover {
+    transform: scale(1.05);
 }
 
 /* Efekt blasku */
@@ -69,6 +100,24 @@ header p {
     opacity: 0.5;
 }
 
+/* Magiczne cząsteczki */
+.magic-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff99ff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 1.5s infinite;
+}
+
 /* Animacje */
 @keyframes pulse {
     0%, 100% {
@@ -78,6 +127,21 @@ header p {
     50% {
         transform: scale(1.1);
         opacity: 0.8;
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
     }
 }
 
@@ -91,12 +155,13 @@ button {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #cc33cc;
     box-shadow: 0 0 10px #ff99ff, 0 0 20px #ff66ff;
+    transform: scale(1.05);
 }
 
 /* Ukrycie wróżby */
@@ -108,4 +173,81 @@ button:hover {
     font-size: 1.5rem;
     margin-top: 20px;
     color: #fff8ff;
+    background: rgba(255, 102, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Historia wróżb */
+.fortune-history {
+    margin: 40px 0;
+    padding: 20px;
+    background: rgba(255, 102, 255, 0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fortune-history h2 {
+    font-size: 1.8rem;
+    color: #ff99ff;
+}
+
+.fortune-history ul {
+    list-style: none;
+    padding: 0;
+}
+
+.fortune-history li {
+    padding: 10px;
+    border-bottom: 1px solid #ff99ff;
+    color: #fff8ff;
+    font-size: 1.2rem;
+}
+
+/* Animacja pojawiania się */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsywność */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .magic-ball {
+        width: 150px;
+        height: 150px;
+    }
+
+    .magic-ball .glow {
+        width: 160px;
+        height: 160px;
+    }
+
+    .magic-ball .reflection {
+        top: 15px;
+        left: 35px;
+        width: 70px;
+        height: 70px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    #fortune {
+        font-size: 1.2rem;
+    }
 }
